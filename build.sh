@@ -51,12 +51,13 @@ sudo chmod 644 /etc/lightdm/lightdm.conf.d/50-myconfig.conf
 # If Youn don't need leave a comment # sudo chmod 755 /srv/move.sh
 sudo chmod 755 /srv/move.sh
 
-#Mount disk. If Youn don't need leave a comment #
-
+#Mount disk. If You don't need leave a comment #
 echo "====== 10. Mount disk ======"
 mkdir /data
-# You need change MyUser and MyPassword. If Youn don't need leave a comment # 
-sudo echo "//192.168.1.138/Test      /data       cifs  username=MyUser,password=MyPassword,dir_mode=0777,file_mode=0777   0  0" >> /etc/fstab
+# You need change MyUser and MyPassword. Compatibility with Windows active directory. UID is your Ubuntu user UID. grep MyUserName /etc/passwd
+sudo echo "//10.0.10.7/Test     /data     cifs   username=MyUser,password=MyPassword,domain=MyAdDomain,uid=1001,noperm,rw 0 0" >> /etc/fstab
+# Or use Windows share without Active directory.
+#sudo echo "//192.168.1.138/Test     /data     cifs   username=MyUser,password=MyPassword,dir_mode=0777,file_mode=0777 0 0" >> /etc/fstab
 
 #Install Zabbix agent. If Youn don't need leave a comment # 
 echo "====== 11. Install Zabbix ======"
