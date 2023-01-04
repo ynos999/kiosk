@@ -70,10 +70,11 @@ sudo systemctl restart zabbix-agent2
 
 #Add ssh & 10050 port to firewall. If Youn don't need leave a comment # 
 echo "====== 12. Add ssh & 10050 port to firewall ======"
+sudo ufw default allow outgoing
+sudo ufw default deny incoming
 sudo ufw allow ssh
 sudo ufw allow 10050/tcp
 sudo ufw allow 3389
-#sudo systemctl enable ufw
 sudo ufw enable
 
 # Change to Your hostname. If Youn don't need leave a comment #
