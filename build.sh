@@ -81,7 +81,7 @@ sudo hostnamectl
 
 #Change Static IP. If You need change IP, please uncomment lines. Make change in file 01-netcfg.yaml.
 #echo "====== 14. Change IP ====="
-#sudo cp ./01-netcfg.yaml /etc/netplan/01-netcfg.yaml
+#sudo cp ./01-network-manager-all.yaml /etc/netplan/01-network-manager-all.yaml
 #sudo netplan apply
  
 # Reboot system
