@@ -79,7 +79,7 @@ echo "====== 13. Change hostname ====="
 sudo echo "kiosk-test" > /etc/hostname 
 sudo hostnamectl
 
-#Change Static IP. If You need change IP, please uncomment lines. Make change in file 01-netcfg.yaml.
+#Change Static IP. If You need change IP, please uncomment lines. Make change in file 01-network-manager-all.yaml.
 #echo "====== 14. Change IP ====="
 #sudo cp ./01-network-manager-all.yaml /etc/netplan/01-network-manager-all.yaml
 #sudo netplan apply
