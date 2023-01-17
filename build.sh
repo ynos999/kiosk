@@ -86,6 +86,11 @@ sudo hostnamectl
 #echo "====== 14. Change IP ====="
 #sudo cp ./01-network-manager-all.yaml /etc/netplan/01-network-manager-all.yaml
 #sudo netplan apply
+
+# Remove Firefox
+echo "====== 15. Remove Firefox ======"
+sudo apt purge firefox -y
+sudo apt autoremove
  
 # Reboot system
 echo "====== Done ====="
