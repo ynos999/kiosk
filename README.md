@@ -13,7 +13,8 @@ Script "move.sh" move all "kiosk" user download files to "/data" folder.
 6. Copy all project to Ubuntu Desktop folder /home/MyUser/Desktop/Project
 7. Give chmod. cd /home/MyUser/Desktop/Project and sudo chmod +x build.sh
 8. If necessary, make a modification. Read the comments for each line.
-9. Run code with root user ./build.sh
+9. Download https://www.mozdevgroup.com/dropbox/okcd/91.0/Release11/OpenKiosk91.7.0-2022-02-22-x86_64.deb and save to Project folder.
+10. Run code with root user ./build.sh
 
 # On the lightdm configuration screen select lightdm
 
@@ -34,7 +35,8 @@ change keyboard Ubuntu Desktop to Your langyage
 6. Скопируйте весь проект в папку Ubuntu Desktop /home/MyUser/Desktop/Project
 7. Дайте chmod. cd /home/MyUser/Desktop/Project и sudo chmod +x build.sh
 8. При необходимости внесите изменения. Прочитайте комментарии к каждой строке.
-9. Запустите код с пользователем root ./build.sh
+9. Загрузите https://www.mozdevgroup.com/dropbox/okcd/91.0/Release11/OpenKiosk91.7.0-2022-02-22-x86_64.deb и сохраните в папку проекта.
+10. Запустите код с пользователем root ./build.sh
 
 # На экране конфигурации lightdm выберите lightdm
 
