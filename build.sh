@@ -6,7 +6,7 @@ sudo apt update && sudo apt install -y lightdm x11vnc slick-greeter
 
 #Install OpenKiosk
 echo "====== 2. Install OpenKiosk ======"
-sudo apt install -y ./OpenKiosk91.7.0-2022-02-22-x86_64.deb 
+sudo apt install -y ./OpenKiosk115.20.0-2025-02-16-x86_64.deb
 
 #Create user kiosks
 echo "====== 3. Creating kiosk group and user ======"
@@ -51,29 +51,31 @@ sudo chmod 644 /etc/lightdm/lightdm.conf.d/50-myconfig.conf
 # If Youn don't need leave a comment # sudo chmod 755 /srv/move.sh
 sudo chmod 755 /srv/move.sh
 
-#Mount disk. If You don't need leave a comment #
-echo "====== 10. Mount disk ======"
-mkdir /data
-# You need change MyUser and MyPassword. Compatibility with Windows active directory. UID is your Ubuntu user UID. grep MyUserName /etc/passwd
-sudo echo "//10.0.10.7/Test     /data     cifs   username=MyUser,password=MyPassword,domain=MyAdDomain,uid=1001,noperm,rw 0 0" >> /etc/fstab
+## Mount disk. If You don't need leave a comment #
+##echo "====== 10. Mount disk ======"
+## mkdir /data
+# You need change IP, MyUser and MyPassword. Compatibility with Windows active directory. UID is your Ubuntu user UID. grep MyUserName /etc/passwd
+## sudo echo "//10.0.10.7/Test     /data     cifs   username=MyUser,password=MyPassword,domain=MyAdDomain,uid=1001,noperm,rw 0 0" >> /etc/fstab
 # Or use Windows share without Active directory.
 #sudo echo "//192.168.1.138/Test     /data     cifs   username=MyUser,password=MyPassword,dir_mode=0777,file_mode=0777 0 0" >> /etc/fstab
 
-#Install Zabbix agent. If Youn don't need leave a comment # 
-echo "====== 11. Install Zabbix ======"
-sudo dpkg -i ./zabbix-release_6.2-4+ubuntu22.04_all.deb
-sudo apt update && sudo apt install -y zabbix-agent2 zabbix-agent2-plugin-*  
-sudo systemctl enable zabbix-agent2
-echo "Server=192.168.1.201" >>  /etc/zabbix/zabbix_agent2.conf # Change to Your IP
-echo "Hostname=Kiosk" >>  /etc/zabbix/zabbix_agent2.conf # Change to Your hostname
-sudo systemctl restart zabbix-agent2
+## Install Zabbix agent. If Youn don't need leave a comment # 
+## echo "====== 11. Install Zabbix ======"
+## Download latest: wget https://repo.zabbix.com/zabbix/7.2/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.2+debian12_all.deb
+# sudo dpkg -i ./zabbix-release_6.2-4+ubuntu22.04_all.deb
+# sudo apt update && sudo apt install -y zabbix-agent2 zabbix-agent2-plugin-*  
+# sudo systemctl enable zabbix-agent2
+## Change Zabbix Server IP
+# echo "Server=192.168.1.201" >>  /etc/zabbix/zabbix_agent2.conf # Change to Your IP
+# echo "Hostname=Kiosk" >>  /etc/zabbix/zabbix_agent2.conf # Change to Your hostname
+# sudo systemctl restart zabbix-agent2
 
 #Add ssh & 10050 port to firewall. If Youn don't need leave a comment # 
 echo "====== 12. Add ssh & 10050 port to firewall ======"
 sudo ufw default allow outgoing
 sudo ufw default deny incoming
 sudo ufw allow ssh
-sudo ufw allow 10050/tcp
+# sudo ufw allow 10050/tcp
 sudo ufw allow 3389
 sudo ufw enable
 
